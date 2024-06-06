@@ -1,0 +1,25 @@
+function uncompress(compressed) {
+    let stack = [];
+    let currentNum = 0;
+    let currentString = "3(ab)";
+
+    for (let char of compressed) {
+        if (!isNaN(char)) {
+            currentNum = currentNum * 10 + parseInt(char);
+        } else if (char === '(') {
+            stack.push([currentString, currentNum]);
+            currentString = "";
+            currentNum = 0;
+        } else if (char === ')') {
+            let [prevString, num] = stack.pop();
+            currentString = prevString + currentString.repeat(num);
+        } else {
+            currentString += char;
+        }
+    }
+
+    return currentString;
+}
+
+console.log(uncompress('3(ab)'));       
+console.log(uncompress('3(ab2(c))'));
