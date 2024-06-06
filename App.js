@@ -1,13 +1,9 @@
-import NestedCheckbox from "./NestedCheckbox";
-
+//import NestedCheckbox from "./NestedCheckbox";
+import APIProgressBar from "./APIProgressBar";
 const App = () => {
   return (
     <div>
-      <NestedCheckbox label="Parent Checkbox">
-        <span>Child 1</span>
-        <span>Child 2</span>
-        <span>Child 3</span>
-      </NestedCheckbox>
+      <APIProgressBar />
     </div>
   );
 };
